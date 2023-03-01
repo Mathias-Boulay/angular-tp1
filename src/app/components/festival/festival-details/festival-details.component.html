@@ -1,1 +1,15 @@
-<p>festival-details works!</p>
+<section>
+  <h3>Festival details</h3>
+  <form (ngSubmit)="validate()" [formGroup]="formGroup" *ngIf="festival" action="">
+    <label for="name">Name</label>
+    <input formControlName="name" id="name" type="text">
+    
+    <label for="table">Table Price</label>
+    <input formControlName="entrance" id="table" type="text">
+    
+    <label for="room">Room price</label>
+    <input formControlName="room" id="room" type="text">
+
+    <button type="submit" [disabled]="!formGroup.valid">Validate change</button>
+  </form>
+</section>

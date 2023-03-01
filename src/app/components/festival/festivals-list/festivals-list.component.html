@@ -1,1 +1,38 @@
 <p>festivals-list works!</p>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Nom</td>
+        <td>Tables</td>
+        <td>Prix entdée</td>
+        <td>Prix Salle</td>
+        <td>Prix Buvette</td>
+        <td>space entdée</td>
+        <td>space salle</td>
+        <td>space buvette</td>
+        <td>table entrée</td>
+        <td>table salle</td>
+        <td>table buvette</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let festival of festivals; let i=index" > 
+        <td>{{festival.id}}</td>
+        <td>{{festival.name}}</td>
+        <td>{{festival.tableTotal}}</td>
+        <td>{{festival.tableprice_1 | currency}}</td>
+        <td>{{festival.tableprice_2 | currency}}</td>
+        <td>{{festival.tableprice_3 | currency}}</td>
+        <td>{{festival.sqmprice_1 | currency}}</td>
+        <td>{{festival.sqmprice_2 | currency}}</td>
+        <td>{{festival.sqmprice_3 | currency}}</td>
+        <td>{{festival.tablebooked_1}}</td>
+        <td>{{festival.tablebooked_2}}</td>
+        <td>{{festival.tablebooked_3}}</td>
+        <td><button (click)="selectFestival(i)">Select</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
