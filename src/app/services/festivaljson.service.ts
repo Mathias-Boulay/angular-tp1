@@ -36,4 +36,10 @@ export class FestivaljsonService {
       .get<Festival[]>('http://localhost:3000/festivals')
       .pipe(map((data) => data.map((json) => this.jsonToFestival(json))));
   }
+
+  getFestival(id: string | null): Observable<Festival> {
+    return this.httpClient
+      .get<Festival>(`http://localhost:3000/festivals/${id}`)
+      .pipe(map((json) => this.jsonToFestival(json)));
+  }
 }

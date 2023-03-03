@@ -9,6 +9,8 @@ import { MessageComponent } from './components/shared/message/message.component'
 import { Festival } from './models/festival';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RootComponent } from './root/root.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     FestivalsListComponent,
     FestivalDetailsComponent,
     MessageComponent,
+    RootComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,6 +28,6 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [RootComponent],
 })
 export class AppModule {}

@@ -20,7 +20,7 @@
       "sqmbooked_3": 0
     },
     {
-      "id": 0,
+      "id": 1,
       "name": "TOTO 2",
       "tablemax_1": 100,
       "tableprice_1": 120,
@@ -39,7 +39,7 @@
       "sqmbooked_3": 0
     },
     {
-      "id": 0,
+      "id": 2,
       "name": "TOTO 3",
       "tablemax_1": 100,
       "tableprice_1": 120,
