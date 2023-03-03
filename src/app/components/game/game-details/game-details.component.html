@@ -1,0 +1,15 @@
+<section>
+  <h3>Game details</h3>
+  <form (ngSubmit)="validate()" [formGroup]="formGroup" action="">
+    <label for="name">Name</label>
+    <input formControlName="name" id="name" type="text">
+    
+    <label for="ageMin">age min</label>
+    <input formControlName="ageMin" id="ageMin" type="number">
+
+    <label for="ageMax">age max</label>
+    <input formControlName="ageMax" id="ageMax" type="number">
+
+    <button type="submit" [disabled]="!formGroup.valid">Validate change</button>
+  </form>
+</section>

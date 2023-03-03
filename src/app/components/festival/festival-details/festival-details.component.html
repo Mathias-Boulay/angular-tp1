@@ -1,6 +1,6 @@
 <section>
   <h3>Festival details</h3>
-  <form (ngSubmit)="validate()" [formGroup]="formGroup" *ngIf="festival" action="">
+  <form (ngSubmit)="validate()" [formGroup]="formGroup" action="">
     <label for="name">Name</label>
     <input formControlName="name" id="name" type="text">
     
@@ -9,6 +9,28 @@
     
     <label for="room">Room price</label>
     <input formControlName="room" id="room" type="text">
+
+    <label for="editorIds">Choose an editor:</label>
+    <select name="editor ids" id="editorIds">
+        <option value="">--Please choose an option--</option>
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="hamster">Hamster</option>
+        <option value="parrot">Parrot</option>
+        <option value="spider">Spider</option>
+        <option value="goldfish">Goldfish</option> 
+    </select>
+
+    <label for="gameIds">Choose a game:</label>
+    <select name="game ids" id="gameIds">
+        <option value="">--Please choose an option--</option>
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="hamster">Hamster</option>
+        <option value="parrot">Parrot</option>
+        <option value="spider">Spider</option>
+        <option value="goldfish">Goldfish</option> 
+    </select>
 
     <button type="submit" [disabled]="!formGroup.valid">Validate change</button>
   </form>

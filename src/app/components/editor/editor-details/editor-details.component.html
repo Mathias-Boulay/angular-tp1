@@ -1,0 +1,12 @@
+<section>
+  <h3>Editor details</h3>
+  <form (ngSubmit)="validate()" [formGroup]="formGroup" action="">
+    <label for="name">Name</label>
+    <input formControlName="name" id="name" type="text">
+    
+    <label for="phone">phone</label>
+    <input formControlName="phone" id="phone" type="tel">
+
+    <button type="submit" [disabled]="!formGroup.valid">Validate change</button>
+  </form>
+</section>

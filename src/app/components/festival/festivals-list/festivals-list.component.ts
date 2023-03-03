@@ -30,4 +30,7 @@ export class FestivalsListComponent implements OnInit {
   selectFestival(index: number) {
     this.festivalSelected.emit(this.festivals![index]);
   }
+  deleteFestival(index: number) {
+    this.festivalService.deleteFestival(this.festivals![index]);
+  }
 }

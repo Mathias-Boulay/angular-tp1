@@ -42,7 +42,9 @@ export class FestivaljsonService {
       json.tableprice_3,
       json.tablebooked_3,
       json.sqmprice_3,
-      json.sqmprice_3
+      json.sqmprice_3,
+      json.editorIds,
+      json.gameIds
     );
   }
 
@@ -61,6 +63,7 @@ export class FestivaljsonService {
     }
     this.festivalCollection.doc(festival.id).set(Object.assign({}, festival));
   }
+
   addNewFestival(festival: Festival) {
     if (festival.id == null) {
       festival.id = this.festivalStore.createId();

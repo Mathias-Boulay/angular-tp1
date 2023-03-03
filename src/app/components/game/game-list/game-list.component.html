@@ -1,0 +1,32 @@
+<p>festivals-list works!</p>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>editorId</td>
+        <td>nom</td>
+        <td>type</td>
+        <td>ageMin</td>
+        <td>ageMax</td>
+        <td>nbMin</td>
+        <td>nbMax</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let game of games; let i=index" > 
+        <td>{{game.id}}</td>
+        <td>{{game.editorId}}</td>
+        <td>{{game.name}}</td>
+        <td>{{game.type}}</td>
+        <td>{{game.ageMin}}</td>
+        <td>{{game.ageMax}}</td>
+        <td>{{game.nbMin}}</td>
+        <td>{{game.nbMax}}</td>
+
+        <td><button (click)="selectGame(i)">Select</button></td>
+        <td><button (click)="deleteGame(i)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

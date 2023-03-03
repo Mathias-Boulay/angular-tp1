@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Festival } from 'src/app/models/festival';
 import { FestivaljsonService } from 'src/app/services/festivaljson.service';
 import { MessageService } from 'src/app/services/message.service';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-festival-details',
@@ -45,7 +46,9 @@ export class FestivalDetailsComponent implements OnChanges {
   }
 
   updateFormFromFestival() {
-    if (!this.festival) return;
+    if (!this.festival) {
+      this.festival = new Festival('New festival', uuidv4());
+    }
 
     this.formGroup = this.formBuilder.group({
       name: [this.festival.name],
@@ -55,6 +58,10 @@ export class FestivalDetailsComponent implements OnChanges {
   }
 
   validate() {
+    if (!this.festival) {
+      this.festival = new Festival('New festival', uuidv4());
+    }
+
     this.festival!.name = this.formGroup.value.name;
     this.festival!.tableprice_1 = this.formGroup.value.entrance;
     this.festival!.sqmprice_1 = this.formGroup.value.room;

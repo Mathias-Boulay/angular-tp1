@@ -1,0 +1,22 @@
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Nom</td>
+        <td>Contact</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let editor of editors; let i=index" > 
+        <td>{{editor.id}}</td>
+        <td>{{editor.name}}</td>
+        <td>{{editor.phone}}</td>
+
+        <td><button (click)="selectEditor(i)">Select</button></td>
+        <td><button (click)="deleteEditor(i)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

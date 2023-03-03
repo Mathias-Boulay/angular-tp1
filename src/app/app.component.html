@@ -1,3 +1,10 @@
 <app-festivals-list (festivalSelected)="editFestival($event)" [festivals]="festivals | async"></app-festivals-list>
 <app-festival-details [festival]="edittedFestival" />
+
+<app-editor-list (editorSelected)="editEditor($event)" [editors]="editors | async"></app-editor-list>
+<app-editor-details [editor]="edittedEditor"></app-editor-details>
+
+<app-game-list (gameSelected)="editGame($event)" [games]="games | async"></app-game-list>
+<app-game-details [game]="edittedGame"></app-game-details>
+
 <app-message/>

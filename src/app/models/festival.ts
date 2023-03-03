@@ -1,7 +1,7 @@
-import { Optional } from "@angular/core";
+import { Optional } from '@angular/core';
+import { Editor } from './editor';
 
 export class Festival {
-  static sqmTable = 6;
   public id?: string;
   public name!: string;
 
@@ -25,10 +25,12 @@ export class Festival {
 
   public revenue: number = 0;
   public visitor: boolean = false;
-  public get tableTotal() : number {
+  public get tableTotal(): number {
     return this.tablemax_1 + this.tablemax_2 + this.tablemax_3;
   }
 
+  public editorIds: string[];
+  public gameIds: string[];
 
   constructor(
     name: string,
@@ -38,8 +40,6 @@ export class Festival {
     @Optional() tablebooked_1: number = 0,
     @Optional() sqmprice_1: number = 120,
     @Optional() sqmbooked_1: number = 0,
-    
-
     @Optional() tablemax_2: number = 100,
     @Optional() tableprice_2: number = 120,
     @Optional() tablebooked_2: number = 0,
@@ -51,23 +51,28 @@ export class Festival {
     @Optional() tablebooked_3: number = 0,
     @Optional() sqmprice_3: number = 120,
     @Optional() sqmbooked_3: number = 0,
-  ){
+
+    @Optional() editor: string[] = [],
+    @Optional() games: string[] = []
+  ) {
     this.id = id;
-    this.name = name
-    this.tablemax_1 = tablemax_1
-    this.tableprice_1 = tableprice_1
-    this.tablebooked_1 = tablebooked_1
-    this.sqmprice_1 = sqmprice_1
-    this.sqmbooked_1 = sqmbooked_1
-    this.tablemax_2 = tablemax_2
-    this.tableprice_2 = tableprice_2
-    this.tablebooked_2 = tablebooked_2
-    this.sqmprice_2 = sqmprice_2
-    this.sqmbooked_2 = sqmbooked_2
-    this.tablemax_3 = tablemax_3
-    this.tableprice_3 = tableprice_3
-    this.tablebooked_3 = tablebooked_3
-    this.sqmprice_3 = sqmprice_3
-    this.sqmbooked_3 = sqmbooked_3
+    this.name = name;
+    this.tablemax_1 = tablemax_1;
+    this.tableprice_1 = tableprice_1;
+    this.tablebooked_1 = tablebooked_1;
+    this.sqmprice_1 = sqmprice_1;
+    this.sqmbooked_1 = sqmbooked_1;
+    this.tablemax_2 = tablemax_2;
+    this.tableprice_2 = tableprice_2;
+    this.tablebooked_2 = tablebooked_2;
+    this.sqmprice_2 = sqmprice_2;
+    this.sqmbooked_2 = sqmbooked_2;
+    this.tablemax_3 = tablemax_3;
+    this.tableprice_3 = tableprice_3;
+    this.tablebooked_3 = tablebooked_3;
+    this.sqmprice_3 = sqmprice_3;
+    this.sqmbooked_3 = sqmbooked_3;
+    this.editorIds = editor;
+    this.gameIds = games;
   }
 }

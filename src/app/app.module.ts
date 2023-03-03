@@ -16,6 +16,10 @@ import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { EditorListComponent } from './components/editor/editor-list/editor-list.component';
+import { EditorDetailsComponent } from './components/editor/editor-details/editor-details.component';
+import { GameListComponent } from './components/game/game-list/game-list.component';
+import { GameDetailsComponent } from './components/game/game-details/game-details.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,10 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     MessageComponent,
     RootComponent,
     PageNotFoundComponent,
+    EditorListComponent,
+    EditorDetailsComponent,
+    GameListComponent,
+    GameDetailsComponent,
   ],
   imports: [
     BrowserModule,
