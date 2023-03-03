@@ -1,13 +1,28 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { Festival } from '../models/festival';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from '@angular/fire/compat/firestore';
+import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FestivaljsonService {
-  constructor(private readonly httpClient: HttpClient) {}
+  private path = '/festivals/';
+  private festivalStore: AngularFirestore;
+  private festivalCollection: AngularFirestoreCollection<Festival>;
+
+  constructor(
+    private readonly firebaseStore: AngularFirestore,
+    private readonly messageService: MessageService
+  ) {
+    this.festivalStore = firebaseStore;
+    this.festivalCollection = firebaseStore.collection(this.path);
+  }
 
   jsonToFestival(json: any) {
     return new Festival(
@@ -32,14 +47,44 @@ export class FestivaljsonService {
   }
 
   getFestivals(): Observable<Festival[]> {
-    return this.httpClient
-      .get<Festival[]>('http://localhost:3000/festivals')
-      .pipe(map((data) => data.map((json) => this.jsonToFestival(json))));
+    return this.festivalCollection.valueChanges({ idField: 'id' }).pipe(
+      tap((doc) => {
+        this.messageService.log(`doc=${JSON.stringify(doc)}`);
+      }),
+      map((data) => data.map((doc) => this.jsonToFestival(doc)))
+    );
   }
 
-  getFestival(id: string | null): Observable<Festival> {
-    return this.httpClient
-      .get<Festival>(`http://localhost:3000/festivals/${id}`)
-      .pipe(map((json) => this.jsonToFestival(json)));
+  addUpdateFestival(festival: Festival) {
+    if (festival.id == null) {
+      festival.id = this.festivalStore.createId();
+    }
+    this.festivalCollection.doc(festival.id).set(Object.assign({}, festival));
+  }
+  addNewFestival(festival: Festival) {
+    if (festival.id == null) {
+      festival.id = this.festivalStore.createId();
+    }
+    this.festivalCollection
+      .doc(festival.id)
+      .get()
+      .subscribe((doc) => {
+        if (!doc.exists) {
+          this.festivalCollection
+            .doc(festival.id)
+            .set(Object.assign({}, festival));
+        } // else doc exists!
+      });
+  }
+
+  deleteFestival(festival: Festival) {
+    this.festivalStore.doc<Festival>(this.path + festival.id).delete();
+  }
+
+  getFestival(id: String): Observable<Festival> {
+    var itemDoc = this.festivalStore.doc<Festival>(this.path + id);
+    return itemDoc
+      .valueChanges()
+      .pipe(map((fest) => this.jsonToFestival(fest)));
   }
 }

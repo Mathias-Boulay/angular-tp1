@@ -35,7 +35,7 @@ export class FestivalDetailsComponent implements OnChanges {
   ngOnInit(): void {
     if (this.route.snapshot.paramMap.has('festivalId')) {
       const id = this.route.snapshot.paramMap.get('festivalId');
-      this.festivalService.getFestival(id).subscribe((fest) => {
+      this.festivalService.getFestival(id!).subscribe((fest) => {
         this.festival = fest;
         this.updateFormFromFestival();
       });
@@ -64,6 +64,9 @@ export class FestivalDetailsComponent implements OnChanges {
         this.festival!.sqmprice_1
       }`
     );
+
+    this.festivalService.addUpdateFestival(this.festival!);
+
     this.festival = undefined;
   }
 }
