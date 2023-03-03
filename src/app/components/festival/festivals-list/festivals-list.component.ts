@@ -5,20 +5,18 @@ import { MessageService } from 'src/app/services/message.service';
 @Component({
   selector: 'app-festivals-list',
   templateUrl: './festivals-list.component.html',
-  styleUrls: ['./festivals-list.component.sass']
+  styleUrls: ['./festivals-list.component.sass'],
 })
 export class FestivalsListComponent implements OnInit {
-  constructor(public messageService: MessageService){
-
-  }
+  constructor(public messageService: MessageService) {}
   ngOnInit(): void {
-    this.messageService.log("Message list initialized")
+    this.messageService.log('Message list initialized');
   }
 
-  @Input() festivals: Festival[] = [];
+  @Input() festivals!: Festival[] | null;
   @Output() festivalSelected = new EventEmitter<Festival>();
 
-  selectFestival(index: number){
-    this.festivalSelected.emit(this.festivals[index]);
+  selectFestival(index: number) {
+    this.festivalSelected.emit(this.festivals![index]);
   }
 }

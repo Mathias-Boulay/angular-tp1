@@ -8,22 +8,22 @@ import { FestivalDetailsComponent } from './components/festival/festival-details
 import { MessageComponent } from './components/shared/message/message.component';
 import { Festival } from './models/festival';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     FestivalsListComponent,
     FestivalDetailsComponent,
-    MessageComponent
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { 
-  
-}
+export class AppModule {}

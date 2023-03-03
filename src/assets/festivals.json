@@ -1,0 +1,61 @@
+{
+  "festivals": [
+    {
+      "id": 0,
+      "name": "TOTO",
+      "tablemax_1": 100,
+      "tableprice_1": 120,
+      "sqmprice_1": 120,
+      "tablebooked_1": 0,
+      "sqmbooked_1": 0,
+      "tablemax_2": 100,
+      "tableprice_2": 120,
+      "sqmprice_2": 120,
+      "tablebooked_2": 0,
+      "sqmbooked_2": 0,
+      "tablemax_3": 100,
+      "tableprice_3": 120,
+      "sqmprice_3": 120,
+      "tablebooked_3": 0,
+      "sqmbooked_3": 0
+    },
+    {
+      "id": 0,
+      "name": "TOTO 2",
+      "tablemax_1": 100,
+      "tableprice_1": 120,
+      "sqmprice_1": 120,
+      "tablebooked_1": 0,
+      "sqmbooked_1": 0,
+      "tablemax_2": 100,
+      "tableprice_2": 120,
+      "sqmprice_2": 120,
+      "tablebooked_2": 0,
+      "sqmbooked_2": 0,
+      "tablemax_3": 100,
+      "tableprice_3": 120,
+      "sqmprice_3": 120,
+      "tablebooked_3": 0,
+      "sqmbooked_3": 0
+    },
+    {
+      "id": 0,
+      "name": "TOTO 3",
+      "tablemax_1": 100,
+      "tableprice_1": 120,
+      "sqmprice_1": 120,
+      "tablebooked_1": 0,
+      "sqmbooked_1": 0,
+      "tablemax_2": 100,
+      "tableprice_2": 120,
+      "sqmprice_2": 120,
+      "tablebooked_2": 0,
+      "sqmbooked_2": 0,
+      "tablemax_3": 100,
+      "tableprice_3": 120,
+      "sqmprice_3": 120,
+      "tablebooked_3": 0,
+      "sqmbooked_3": 0
+    }
+  ]
+}
